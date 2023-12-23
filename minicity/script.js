@@ -75,6 +75,11 @@ function changetile(tile) {
       document.getElementById("population").innerText = `👤人口: ${population}人`;
       maxpopulation = maxpopulation - 4;
     }
+    if(document.getElementById(tile).src === "https://hamutan86.github.io/hamks-forever/minicity/minicityapartment.png"){
+      population = population - Math.floor(population / (maxpopulation / 12));
+      document.getElementById("population").innerText = `👤人口: ${population}人`;
+      maxpopulation = maxpopulation - 12;
+    }
     document.getElementById(tile).src = "minicityblank.png";
     document.getElementById("population").innerText = `👤人口: ${population}人`;
     document.getElementById("money").style.display = "block";
