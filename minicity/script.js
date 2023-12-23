@@ -122,7 +122,7 @@ window.onload = function(){
     }
     if(population != 0){
       if(Math.floor(Math.random() * 50) <= maxpopulation / 4){
-        if(Math.floor(Math.random() * 160) >= happiness * 15){
+        if(Math.floor(Math.random() * 8000) >= happiness * 15){
           population = population - 1;
           document.getElementById("population").innerText = `👤人口: ${population}人`;
         }
