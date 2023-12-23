@@ -60,6 +60,22 @@ function changetile(tile) {
     naturepoint = naturepoint + 1;
     buildmode = "";
   }
+  if(buildmode === "park"){
+    if(money < 20){
+      return alert("お金が足りません。");
+    }
+    document.getElementById(tile).src = "minicitypark.jpg";
+    document.getElementById("population").innerText = `👤人口: ${population}人`;
+    document.getElementById("money").style.display = "block";
+    document.getElementById("happiness").style.display = "block";
+    document.getElementById("setting_btn").innerText = "設定";
+    document.getElementById("footer").style.display = "block";
+    money = money - 20;
+    document.getElementById("money").innerText = `💵お金: $${money.toString()}`;
+    happiness = happiness + 1;
+    document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
+    buildmode = "";
+  }
   if(buildmode === "remove"){
     if(document.getElementById(tile).src === "https://hamutan86.github.io/hamks-forever/minicity/minicitytree.jpg"){
       if(naturepoint === 0){
@@ -69,6 +85,10 @@ function changetile(tile) {
       }else{
         naturepoint = naturepoint - 1;
       }
+    }
+    if(document.getElementById(tile).src === "https://hamutan86.github.io/hamks-forever/minicity/minicitypark.png"){
+      happiness = happiness - 1;
+      document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
     }
     if(document.getElementById(tile).src === "https://hamutan86.github.io/hamks-forever/minicity/minicityhouse.png"){
       population = population - Math.floor(population / (maxpopulation / 4));
@@ -122,6 +142,14 @@ function changebuildmode(building) {
     document.getElementById("setting_btn").innerText = "キャンセル"
     document.getElementById("footer").style.display = "none";
     buildmode = "tree";
+  }
+  if(building === "park"){
+    document.getElementById("population").innerText = "建設モード";
+    document.getElementById("money").style.display = "none";
+    document.getElementById("happiness").style.display = "none";
+    document.getElementById("setting_btn").innerText = "キャンセル"
+    document.getElementById("footer").style.display = "none";
+    buildmode = "park";
   }
   if(building === "remove"){
     document.getElementById("population").innerText = "撤去モード";
