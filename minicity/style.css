@@ -73,6 +73,10 @@ header {
   display: flex;
 }
 
+#tabs > btn{
+  border-bottom: none;
+}
+
 .panel {
   border: 2px solid #434343;
 }
