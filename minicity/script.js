@@ -10,6 +10,7 @@ var naturepoint = 0;
 var maxpopulation = 0;
 var tax = "medium";
 var parks = 0;
+var gameover = false;
 
 function changetile(tile) {
   if(document.getElementById(tile).src != "https://hamutan86.github.io/hamks-forever/minicity/minicityblank.png" && buildmode != "remove" && buildmode != ""){
@@ -269,7 +270,8 @@ window.onload = function(){
     if(parks != 0){
       money = money - (parks * 2);
     }
-    if(money < 0){
+    if(money < 0 && gameover != true){
+      gameover = true;
       alert("ゲームオーバー！\nお金がマイナスになってしまいました...");
       return location.reload();
     }
