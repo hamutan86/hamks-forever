@@ -6,7 +6,7 @@ var naturepoint = 0;
 var maxpopulation = 0;
 
 function changetile(tile) {
-  if(document.getElementById(tile).src != "https://hamutan86.github.io/hamks-forever/minicity/minicityblank.png" && buildmode != "remove"){
+  if(document.getElementById(tile).src != "https://hamutan86.github.io/hamks-forever/minicity/minicityblank.png" && buildmode != "remove" && buildmode != ""){
     return alert("そこは既に他の建物が建っています。")
   }
 
@@ -50,12 +50,16 @@ function changetile(tile) {
         naturepoint = naturepoint - 1;
       }
     }
+    if(document.getElementById(tile).src === "https://hamutan86.github.io/hamks-forever/minicity/minicitytree.jpg"){
+      maxpopulation = maxpopulation - 4;
+    }
     document.getElementById(tile).src = "minicityblank.png";
     document.getElementById("population").innerText = `👤人口: ${population}人`;
     document.getElementById("money").style.display = "block";
     document.getElementById("happiness").style.display = "block";
     document.getElementById("setting").style.display = "block";
     document.getElementById("footer").style.display = "block";
+    buildmode = "";
   }
 };
 
