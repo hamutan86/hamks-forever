@@ -9,7 +9,22 @@ function changetile(tile) {
   if(document.getElementById(tile).src != "https://hamutan86.github.io/hamks-forever/minicity/minicityblank.png" && buildmode != "remove"){
     return alert("そこは既に他の建物が建っています。")
   }
-  
+
+  if(buildmode === "house"){
+    if(money < 300){
+      return alert("お金が足りません。");
+    }
+    document.getElementById(tile).src = "minicityhouse.png";
+    document.getElementById("population").innerText = `👤人口: ${population}人`;
+    document.getElementById("money").style.display = "block";
+    document.getElementById("happiness").style.display = "block";
+    document.getElementById("setting").style.display = "block";
+    document.getElementById("footer").style.display = "block";
+    money = money - 300;
+    document.getElementById("money").innerText = `💵お金: $${money.toString()}`;
+    maxpopulation = maxpopulation + 4;
+    buildmode = "";
+  }
   if(buildmode === "tree"){
     if(money < 1){
       return alert("お金が足りません。");
@@ -53,6 +68,14 @@ function changetab(tab) {
 };
 
 function changebuildmode(building) {
+  if(building === "house"){
+    document.getElementById("population").innerText = "建設モード";
+    document.getElementById("money").style.display = "none";
+    document.getElementById("happiness").style.display = "none";
+    document.getElementById("setting").style.display = "none";
+    document.getElementById("footer").style.display = "none";
+    buildmode = "house";
+  }
   if(building === "tree"){
     document.getElementById("population").innerText = "建設モード";
     document.getElementById("money").style.display = "none";
