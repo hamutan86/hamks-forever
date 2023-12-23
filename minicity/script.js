@@ -6,7 +6,7 @@ var naturepoint = 0;
 var maxpopulation = 0;
 
 function changetile(tile) {
-  if(document.getElementById(tile).src != "https://hamks-forever--hamutan.repl.co/minicityblank.png" && document.getElementById(tile).src != "https://hamks-forever.hamutan.repl.co/minicityblank.png" && buildmode != "remove"){
+  if(document.getElementById(tile).src != "https://hamutan86.github.io/hamks-forever/minicity/minicityblank.png" && buildmode != "remove"){
     return alert("そこは既に他の建物が建っています。")
   }
   
@@ -26,7 +26,7 @@ function changetile(tile) {
     buildmode = "";
   }
   if(buildmode === "remove"){
-    if(document.getElementById(tile).src === "https://hamks-forever--hamutan.repl.co/minicitytree.jpg" || document.getElementById(tile).src === "https://hamks-forever.hamutan.repl.co/minicitytree.jpg"){
+    if(document.getElementById(tile).src === "https://hamutan86.github.io/hamks-forever/minicity/minicitytree.jpg"){
       if(naturepoint === 0){
         happiness = happiness - 1;
         document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
