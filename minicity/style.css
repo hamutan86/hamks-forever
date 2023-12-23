@@ -77,7 +77,7 @@ header {
   border-bottom: none;
 }
 
-#tabs > button:active{
+#tabs > button:hover{
   border: 2px solid #434343;
   border-bottom: none;
 }
