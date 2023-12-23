@@ -271,7 +271,7 @@ window.onload = function(){
     }
     if(money < 0){
       alert("ゲームオーバー！\nお金がマイナスになってしまいました...");
-      location.reload();
+      return location.reload();
     }
     document.getElementById("money").innerText = `💵お金: $${money.toString()}`;
   }, 1000)
