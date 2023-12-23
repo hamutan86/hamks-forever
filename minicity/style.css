@@ -1,0 +1,71 @@
+#dialoglogo {
+  width: 65%;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: darkgray;
+}
+
+#setting {
+  height: 65%;
+}
+
+#line1 {
+  display: flex;
+}
+
+#line1 > img{
+  max-width: 20%;
+}
+
+#line2 {
+  display: flex;
+}
+
+#line2 > img{
+  max-width: 20%;
+}
+
+#line3 {
+  display: flex;
+}
+
+#line3 > img{
+  max-width: 20%;
+}
+
+#line4 {
+  display: flex;
+}
+
+#line4 > img{
+  max-width: 20%;
+}
+
+#line5 {
+  display: flex;
+}
+
+#line5 > img{
+  max-width: 20%;
+}
+
+#tabs {
+  display: flex;
+}
+
+.panel {
+  border: 2px solid #434343;
+}
+
+.icon {
+  width: 100%;
+}
+
+.iconpanel {
+  max-width: 30%;
+  border: 1px solid darkgray;
+}
