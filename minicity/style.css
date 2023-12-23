@@ -73,7 +73,12 @@ header {
   display: flex;
 }
 
-#tabs > btn{
+#tabs > botton{
+  border-bottom: none;
+}
+
+#tabs > button:active{
+  border: 2px solid #434343;
   border-bottom: none;
 }
 
