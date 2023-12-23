@@ -122,7 +122,7 @@ window.onload = function(){
     }
     if(population != 0){
       if(Math.floor(Math.random() * 50) <= maxpopulation / 4){
-        if(Math.floor(Math.random() * 100)  >= happiness * 15){
+        if(Math.floor(Math.random() * 160) >= happiness * 15){
           population = population - 1;
           document.getElementById("population").innerText = `👤人口: ${population}人`;
         }
@@ -140,7 +140,7 @@ window.onload = function(){
       money = money + (population * 20);
     }
     if(maxpopulation > population && maxpopulation != population){
-      money = money - (maxpopulation - population * 3);
+      money = money - ((maxpopulation - population) * 3);
     }
     document.getElementById("money").innerText = `💵お金: $${money.toString()}`;
   }, 1000)
