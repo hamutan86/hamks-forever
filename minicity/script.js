@@ -14,7 +14,7 @@ function changetile(tile) {
     if(money < 1){
       return alert("お金が足りません。");
     }
-    document.getElementById(tile).src = "/minicitytree.jpg";
+    document.getElementById(tile).src = "minicitytree.jpg";
     document.getElementById("population").innerText = `👤人口: ${population}人`;
     document.getElementById("money").style.display = "block";
     document.getElementById("happiness").style.display = "block";
@@ -35,7 +35,7 @@ function changetile(tile) {
         naturepoint = naturepoint - 1;
       }
     }
-    document.getElementById(tile).src = "/minicityblank.png";
+    document.getElementById(tile).src = "minicityblank.png";
     document.getElementById("population").innerText = `👤人口: ${population}人`;
     document.getElementById("money").style.display = "block";
     document.getElementById("happiness").style.display = "block";
