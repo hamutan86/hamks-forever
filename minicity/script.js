@@ -50,7 +50,7 @@ function changetile(tile) {
         naturepoint = naturepoint - 1;
       }
     }
-    if(document.getElementById(tile).src === "https://hamutan86.github.io/hamks-forever/minicity/minicitytree.jpg"){
+    if(document.getElementById(tile).src === "https://hamutan86.github.io/hamks-forever/minicity/minicityhouse.png"){
       maxpopulation = maxpopulation - 4;
     }
     document.getElementById(tile).src = "minicityblank.png";
@@ -108,4 +108,12 @@ window.onload = function(){
       naturepoint = 0;
     }
   }, 50)
+  setInterval(() => {
+    if(population >= maxpopulation){
+      if(Math.floor(Math.random() * 100) <= happiness){
+        population = population + 1;
+        document.getElementById("population").innerText = `👤人口: ${population}人`;
+      }
+    }
+  }, 5000)
 }
