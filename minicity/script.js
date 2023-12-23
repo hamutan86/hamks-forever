@@ -109,11 +109,13 @@ window.onload = function(){
     }
   }, 50)
   setInterval(() => {
-    if(population >= maxpopulation){
-      if(Math.floor(Math.random() * 100) <= happiness){
-        population = population + 1;
-        document.getElementById("population").innerText = `👤人口: ${population}人`;
+    if(population <= maxpopulation){
+      if(Math.floor(Math.random() * 50) <= maxpopulation / 4){
+        if(Math.floor(Math.random() * 100) <= happiness){
+          population = population + 1;
+          document.getElementById("population").innerText = `👤人口: ${population}人`;
+        }
       }
     }
-  }, 5000)
+  }, 100)
 }
