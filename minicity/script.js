@@ -145,6 +145,7 @@ function setting(){
 function changetax(rate){
   if(rate != tax){
     alert("変更を保存しました。")
+    document.getElementById("taxpreview").innerText = `税金 現在：${rate}`.replace("low", "低い").replace("medium", "普通").replace("high", "高い");
   }
   if (rate === "low"){
     if(tax === "medium"){
