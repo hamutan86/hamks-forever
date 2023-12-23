@@ -1,0 +1,42 @@
+#cookiee {
+  width: 30%;
+}
+
+@media only screen and (max-width: 1000px){
+  #cookiee {
+    width: 80%
+  }
+}
+
+footer {
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  bottom: 0;
+  color: #ffffff;
+  background-color: #000000;
+  opacity: 0.6;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+#cookiecursor {
+  width: 15%;
+}
+
+@media only screen and (max-width: 1000px){
+  #cookiecursor {
+    width: 65%
+  }
+}
+
+#cursorcount {
+  position: relative;
+  bottom: 15px;
+}
+
+#buycursor {
+  position: relative;
+  bottom: 15px;
+}
