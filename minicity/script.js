@@ -4,6 +4,7 @@ var happiness = 50;
 var buildmode = "";
 var naturepoint = 0;
 var maxpopulation = 0;
+var tax = "medium";
 
 function changetile(tile) {
   if(document.getElementById(tile).src != "https://hamutan86.github.io/hamks-forever/minicity/minicityblank.png" && buildmode != "remove" && buildmode != ""){
@@ -120,4 +121,19 @@ window.onload = function(){
       }
     }
   }, 100)
+  setInterval(() => {
+    if(tax === "low"){
+      money = money + (population * 5);
+    }
+    if(tax === "medium"){
+      money = money + (population * 10);
+    }
+    if(tax === "high"){
+      money = money + (population * 20);
+    }
+    if(maxpopulation > population && maxpopulation != population){
+      money = money - (maxpopulation - population * 3);
+    }
+    document.getElementById("money").innerText = `💵お金: $${money.toString()}`;
+  }, 1000)
 }
