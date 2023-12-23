@@ -19,7 +19,7 @@ function changetile(tile) {
     document.getElementById("population").innerText = `👤人口: ${population}人`;
     document.getElementById("money").style.display = "block";
     document.getElementById("happiness").style.display = "block";
-    document.getElementById("setting").style.display = "block";
+    document.getElementById("setting_btn").innerText = "設定";
     document.getElementById("footer").style.display = "block";
     money = money - 300;
     document.getElementById("money").innerText = `💵お金: $${money.toString()}`;
@@ -34,7 +34,7 @@ function changetile(tile) {
     document.getElementById("population").innerText = `👤人口: ${population}人`;
     document.getElementById("money").style.display = "block";
     document.getElementById("happiness").style.display = "block";
-    document.getElementById("setting").style.display = "block";
+    document.getElementById("setting_btn").innerText = "設定";
     document.getElementById("footer").style.display = "block";
     money = money - 1;
     document.getElementById("money").innerText = `💵お金: $${money.toString()}`;
@@ -60,7 +60,7 @@ function changetile(tile) {
     document.getElementById("population").innerText = `👤人口: ${population}人`;
     document.getElementById("money").style.display = "block";
     document.getElementById("happiness").style.display = "block";
-    document.getElementById("setting").style.display = "block";
+    document.getElementById("setting_btn").innerText = "設定";
     document.getElementById("footer").style.display = "block";
     buildmode = "";
   }
@@ -79,7 +79,7 @@ function changebuildmode(building) {
     document.getElementById("population").innerText = "建設モード";
     document.getElementById("money").style.display = "none";
     document.getElementById("happiness").style.display = "none";
-    document.getElementById("setting").innerText = "キャンセル";
+    document.getElementById("setting_btn").innerText = "キャンセル";
     document.getElementById("footer").style.display = "none";
     buildmode = "house";
   }
@@ -87,7 +87,7 @@ function changebuildmode(building) {
     document.getElementById("population").innerText = "建設モード";
     document.getElementById("money").style.display = "none";
     document.getElementById("happiness").style.display = "none";
-    document.getElementById("setting").innerText = "キャンセル"
+    document.getElementById("setting_btn").innerText = "キャンセル"
     document.getElementById("footer").style.display = "none";
     buildmode = "tree";
   }
@@ -95,7 +95,7 @@ function changebuildmode(building) {
     document.getElementById("population").innerText = "撤去モード";
     document.getElementById("money").style.display = "none";
     document.getElementById("happiness").style.display = "none";
-    document.getElementById("setting").innerText = "キャンセル";
+    document.getElementById("setting_btn").innerText = "キャンセル";
     document.getElementById("footer").style.display = "none";
     buildmode = "remove";
   }
@@ -109,7 +109,7 @@ function setting(){
     document.getElementById("population").innerText = `👤人口: ${population}人`;
     document.getElementById("money").style.display = "block";
     document.getElementById("happiness").style.display = "block";
-    document.getElementById("setting").innerText = "設定";
+    document.getElementById("setting_btn").innerText = "設定";
     document.getElementById("footer").style.display = "block";
     buildmode = "";
   }
