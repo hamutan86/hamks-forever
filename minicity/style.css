@@ -53,6 +53,22 @@ header {
   max-width: 14%;
 }
 
+#line6 {
+  display: flex;
+}
+
+#line6 > img{
+  max-width: 14%;
+}
+
+#line7 {
+  display: flex;
+}
+
+#line7 > img{
+  max-width: 14%;
+}
+
 #tabs {
   display: flex;
 }
