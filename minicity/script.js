@@ -90,7 +90,7 @@ function changetab(tab) {
   document.getElementById("panel2").style.display = "none";
   document.getElementById("panel3").style.display = "none";
   document.getElementById("panel4").style.display = "none";
-  document.getElementById(tab).style.display = "block";
+  document.getElementById(tab).style.display = "flex";
 };
 
 function changebuildmode(building) {
