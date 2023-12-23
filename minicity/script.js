@@ -51,7 +51,8 @@ function changetile(tile) {
       }
     }
     if(document.getElementById(tile).src === "https://hamutan86.github.io/hamks-forever/minicity/minicityhouse.png"){
-      population = population - Math.floor(population * (maxpopulation / 4));
+      population = population - Math.floor(population / (maxpopulation / 4));
+      document.getElementById("population").innerText = `👤人口: ${population}人`;
       maxpopulation = maxpopulation - 4;
     }
     document.getElementById(tile).src = "minicityblank.png";
@@ -110,7 +111,7 @@ window.onload = function(){
     }
   }, 50)
   setInterval(() => {
-    if(population < maxpopulation){
+    if(population < maxpopulation && population != maxpopulation){
       if(Math.floor(Math.random() * 50) <= maxpopulation / 4){
         if(Math.floor(Math.random() * 100) <= happiness){
           population = population + 1;
