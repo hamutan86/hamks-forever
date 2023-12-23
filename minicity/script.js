@@ -142,6 +142,45 @@ function setting(){
   }
 };
 
+function changetax(rate){
+  if (rate === "low"){
+    if(tax === "medium"){
+      tax = "low";
+      happiness = happiness + 20;
+      document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
+    }
+    if(tax === "high"){
+      tax = "low";
+      happiness = happiness + 40;
+      document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
+    }
+  }
+  if (rate === "medium"){
+    if(tax === "low"){
+      tax = "medium";
+      happiness = happiness - 20;
+      document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
+    }
+    if(tax === "high"){
+      tax = "medium";
+      happiness = happiness + 20;
+      document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
+    }
+  }
+  if (rate === "high"){
+    if(tax === "medium"){
+      tax = "high";
+      happiness = happiness - 20;
+      document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
+    }
+    if(tax === "low"){
+      tax = "high";
+      happiness = happiness - 40;
+      document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
+    }
+  }
+};
+
 window.onload = function(){
   var dialog = document.getElementById("dialog");
   dialog.showModal();
