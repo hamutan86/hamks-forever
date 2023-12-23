@@ -64,7 +64,7 @@ function changetile(tile) {
     if(money < 20){
       return alert("お金が足りません。");
     }
-    document.getElementById(tile).src = "minicitypark.jpg";
+    document.getElementById(tile).src = "minicitypark.png";
     document.getElementById("population").innerText = `👤人口: ${population}人`;
     document.getElementById("money").style.display = "block";
     document.getElementById("happiness").style.display = "block";
