@@ -134,7 +134,9 @@ window.onload = function(){
       if(Math.floor(Math.random() * 50) <= maxpopulation / 4){
         if(Math.floor(Math.random() * 100) <= happiness){
           population = population + 1;
-          document.getElementById("population").innerText = `👤人口: ${population}人`;
+          if(buildmode === ""){
+            document.getElementById("population").innerText = `👤人口: ${population}人`;
+          }
         }
       }
     }
@@ -142,7 +144,9 @@ window.onload = function(){
       if(Math.floor(Math.random() * 50) <= maxpopulation / 4){
         if(Math.floor(Math.random() * 100) <= Math.floor(850 / happiness)){
           population = population - 1;
-          document.getElementById("population").innerText = `👤人口: ${population}人`;
+          if(buildmode === ""){
+            document.getElementById("population").innerText = `👤人口: ${population}人`;
+          }
         }
       }
     }
