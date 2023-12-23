@@ -1,0 +1,30 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+#cookie_thumbnail {
+  width: 40%;
+}
+
+@media only screen and (max-width: 1000px){
+  #cookie_thumbnail {
+    width: 100%;
+  }
+}
+
+#badge {
+  width: 22%;
+  position: fixed;
+  bottom: 1%;
+  right: 3%;
+}
+
+@media only screen and (max-width: 1000px){
+  #badge {
+    width: 60%;
+    position: fixed;
+    bottom: 1%;
+    right: 3%;
+  }
+}
