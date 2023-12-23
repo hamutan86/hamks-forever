@@ -80,6 +80,7 @@ header {
 #tabs > button:hover{
   border: 2px solid #434343;
   border-bottom: none;
+  background-color: #fdf7ea;
 }
 
 .panel {
