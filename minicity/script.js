@@ -9,6 +9,7 @@ var buildmode = "";
 var naturepoint = 0;
 var maxpopulation = 0;
 var tax = "medium";
+var parks = 0;
 
 function changetile(tile) {
   if(document.getElementById(tile).src != "https://hamutan86.github.io/hamks-forever/minicity/minicityblank.png" && buildmode != "remove" && buildmode != ""){
@@ -74,6 +75,7 @@ function changetile(tile) {
     document.getElementById("money").innerText = `💵お金: $${money.toString()}`;
     happiness = happiness + 1;
     document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
+    parks = parks + 1;
     buildmode = "";
   }
   if(buildmode === "remove"){
@@ -89,6 +91,7 @@ function changetile(tile) {
     if(document.getElementById(tile).src === "https://hamutan86.github.io/hamks-forever/minicity/minicitypark.png"){
       happiness = happiness - 1;
       document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
+      parks = parks - 1;
     }
     if(document.getElementById(tile).src === "https://hamutan86.github.io/hamks-forever/minicity/minicityhouse.png"){
       population = population - Math.floor(population / (maxpopulation / 4));
@@ -262,6 +265,9 @@ window.onload = function(){
     }
     if(maxpopulation > population && maxpopulation != population){
       money = money - ((maxpopulation - population) * 3);
+    }
+    if(parks != 0){
+      money = money - (parks * 2);
     }
     document.getElementById("money").innerText = `💵お金: $${money.toString()}`;
   }, 1000)
