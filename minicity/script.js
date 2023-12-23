@@ -30,6 +30,21 @@ function changetile(tile) {
     maxpopulation = maxpopulation + 4;
     buildmode = "";
   }
+  if(buildmode === "apartment"){
+    if(money < 1600){
+      return alert("お金が足りません。");
+    }
+    document.getElementById(tile).src = "minicityapartment.png";
+    document.getElementById("population").innerText = `👤人口: ${population}人`;
+    document.getElementById("money").style.display = "block";
+    document.getElementById("happiness").style.display = "block";
+    document.getElementById("setting_btn").innerText = "設定";
+    document.getElementById("footer").style.display = "block";
+    money = money - 1600;
+    document.getElementById("money").innerText = `💵お金: $${money.toString()}`;
+    maxpopulation = maxpopulation + 12;
+    buildmode = "";
+  }
   if(buildmode === "tree"){
     if(money < 1){
       return alert("お金が足りません。");
@@ -86,6 +101,14 @@ function changebuildmode(building) {
     document.getElementById("setting_btn").innerText = "キャンセル";
     document.getElementById("footer").style.display = "none";
     buildmode = "house";
+  }
+  if(building === "apartment"){
+    document.getElementById("population").innerText = "建設モード";
+    document.getElementById("money").style.display = "none";
+    document.getElementById("happiness").style.display = "none";
+    document.getElementById("setting_btn").innerText = "キャンセル";
+    document.getElementById("footer").style.display = "none";
+    buildmode = "apartment";
   }
   if(building === "tree"){
     document.getElementById("population").innerText = "建設モード";
