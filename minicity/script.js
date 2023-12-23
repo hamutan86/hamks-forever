@@ -143,6 +143,9 @@ function setting(){
 };
 
 function changetax(rate){
+  if(rate != tax){
+    alert("変更を保存しました。")
+  }
   if (rate === "low"){
     if(tax === "medium"){
       tax = "low";
