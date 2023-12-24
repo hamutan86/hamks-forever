@@ -90,7 +90,7 @@ header {
 .panel {
   width: 100%;
   border: 2px solid #434343;
-  overflow: scroll;
+  overflow-x: scroll;
 }
 
 .icon {
@@ -98,6 +98,7 @@ header {
 }
 
 .iconpanel {
-  width: 30%;
+  max-width: 30%;
+  min-width: 30%;
   border: 1px solid darkgray;
 }
