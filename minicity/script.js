@@ -125,6 +125,10 @@ function changetile(tile) {
       document.getElementById("population").innerText = `👤人口: ${population}人`;
       maxpopulation = maxpopulation - 12;
     }
+    if(document.getElementById(tile).src === "https://hamutan86.github.io/hamks-forever/minicity/minicitystore.png"){
+      maxshoppers = maxshoppers - 30;
+      maxemployees = maxemployees - 1;
+    }
     document.getElementById(tile).src = "minicityblank.png";
     document.getElementById("population").innerText = `👤人口: ${population}人`;
     document.getElementById("money").style.display = "block";
@@ -261,7 +265,7 @@ function populationcheck(change){
     if(maxemployees < population && popcheckcache2 < Math.floor((population - maxshoppers) / 2)){
       happiness = happiness - Math.floor((population - maxemployees) / 2);
       document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
-      popcheckcache2 = Math.floor((population - maxshoppers) / 2);
+      popcheckcache2 = Math.floor((population - maxemployees) / 2);
     }
   }
   if(change === "de"){
@@ -270,10 +274,10 @@ function populationcheck(change){
       document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
       popcheckcache1 = Math.floor((population - maxshoppers) / 2);
     }
-    if(maxemployees <= population && popcheckcache2 > Math.floor((population - maxshoppers) / 2)){
+    if(maxemployees <= population && popcheckcache2 > Math.floor((population - maxemployees) / 2)){
       happiness = happiness + Math.floor((population - maxemployees) / 2);
       document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
-      popcheckcache2 = Math.floor((population - maxshoppers) / 2);
+      popcheckcache2 = Math.floor((population - maxemployees) / 2);
     }
   }
 };
