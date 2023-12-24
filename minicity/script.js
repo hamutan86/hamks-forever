@@ -262,7 +262,7 @@ function populationcheck(change){
       document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
       popcheckcache1 = Math.floor((population - maxshoppers) / 2);
     }
-    if(maxemployees < population && popcheckcache2 < Math.floor((population - maxshoppers) / 2)){
+    if(maxemployees < population && popcheckcache2 < Math.floor((population - maxemployees) / 2)){
       happiness = happiness - Math.floor((population - maxemployees) / 2);
       document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
       popcheckcache2 = Math.floor((population - maxemployees) / 2);
