@@ -296,13 +296,13 @@ window.onload = function(){
       happinesscache = happiness + popcheckcache1;
       happiness = happiness + happinesscache;
       document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
-      popcheckcache1 = popcheckcache1 < Math.floor((population - maxshoppers) / 2);
+      popcheckcache1 = Math.floor((population - maxshoppers) / 2);
     }
     if(maxemployees > population && popcheckcache2 > Math.floor((population - maxemployees) / 2)){
       happinesscache = happiness + popcheckcache;
       happiness = happiness + happinesscache;
       document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
-      popcheckcache1 = popcheckcache1 < Math.floor((population - maxshoppers) / 2);
+      popcheckcache2 = Math.floor((population - maxshoppers) / 2);
     }
   }, 50)
   setInterval(() => {
