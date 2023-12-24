@@ -13,6 +13,7 @@ var parks = 0;
 var gameover = false;
 var maxshoppers = 0;
 var maxemployees = 0;
+var opinions = [];
 
 var popcheckcache1 = -15;
 var popcheckcache2 = 0;
@@ -262,11 +263,17 @@ function populationcheck(change){
       happiness = happiness - Math.floor((population - maxshoppers) / 2);
       document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
       popcheckcache1 = Math.floor((population - maxshoppers) / 2);
+      if(!opinions.includes("商店がないので買い物が出来ず不便")){
+        opinions.push("商店がないので買い物が出来ず不便")
+      }
     }
     if(maxemployees < population && popcheckcache2 < Math.floor((population - maxemployees) / 2)){
       happiness = happiness - Math.floor((population - maxemployees) / 2);
       document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
       popcheckcache2 = Math.floor((population - maxemployees) / 2);
+      if(!opinions.includes("街に働ける場所がないので通勤に時間がかかり不便")){
+        opinions.push("街に働ける場所がないので通勤に時間がかかり不便")
+      }
     }
   }
   if(change === "de"){
@@ -297,12 +304,18 @@ window.onload = function(){
       happiness = happinesscache - Math.floor((population - maxshoppers) / 2);
       document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
       popcheckcache1 = Math.floor((population - maxshoppers) / 2);
+      if(opinions.includes("商店がないので買い物が出来ず不便")){
+        opinions.splice(opinions.indexOf("商店がないので買い物が出来ず不便"), 1)
+      }
     }
     if(maxemployees > population && popcheckcache2 > Math.floor((population - maxemployees) / 2)){
       happinesscache = happiness - popcheckcache2;
       happiness = happinesscache - Math.floor((population - maxemployees) / 2);
       document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
       popcheckcache2 = Math.floor((population - maxshoppers) / 2);
+      if(opinions.includes("街に働ける場所がないので通勤に時間がかかり不便")){
+        opinions.splice(opinions.indexOf("街に働ける場所がないので通勤に時間がかかり不便"), 1)
+      }
     }
   }, 50)
   setInterval(() => {
@@ -352,4 +365,10 @@ window.onload = function(){
     }
     document.getElementById("money").innerText = `💵お金: $${money.toString()}`;
   }, 1000)
+  setInterval(() => {
+    if(opinions === []){
+      return document.getElementById("opinionfield").innerText = "なし";
+    }
+    document.getElementById("opinionfield").innerText = opinions[Math.floor(Math.random() * opinions.length)];
+  }, 3000)
 }
