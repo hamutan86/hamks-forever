@@ -96,6 +96,6 @@ header {
 }
 
 .iconpanel {
-  max-width: 30%;
+  width: 30%;
   border: 1px solid darkgray;
 }
