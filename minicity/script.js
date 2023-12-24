@@ -14,6 +14,7 @@ var gameover = false;
 var maxshoppers = 0;
 var maxemployees = 0;
 var opinions = [];
+var malls = 0;
 
 var popcheckcache1 = -15;
 var popcheckcache2 = 0;
@@ -84,6 +85,7 @@ function changetile(tile) {
     document.getElementById("money").innerText = `💵お金: $${money.toString()}`;
     maxshoppers = maxshoppers + 1000;
     maxemployees = maxemployees + 50;
+    malls = malls + 1;
     buildmode = "";
   }
   if(buildmode === "tree"){
@@ -144,8 +146,13 @@ function changetile(tile) {
       maxpopulation = maxpopulation - 12;
     }
     if(document.getElementById(tile).src === "https://hamutan86.github.io/hamks-forever/minicity/minicitystore.png"){
-      maxshoppers = maxshoppers - 30;
+      maxshoppers = maxshoppers - 10;
       maxemployees = maxemployees - 1;
+    }
+    if(document.getElementById(tile).src === "https://hamutan86.github.io/hamks-forever/minicity/minicitymall.png"){
+      maxshoppers = maxshoppers - 1000;
+      maxemployees = maxemployees - 50;
+      malls = malls - 1;
     }
     document.getElementById(tile).src = "minicityblank.png";
     document.getElementById("population").innerText = `👤人口: ${population}人`;
@@ -359,6 +366,17 @@ window.onload = function(){
         if(Math.floor(Math.random() * 100) <= Math.floor(850 / happiness)){
           population = population - 1;
           populationcheck("de");
+          if(buildmode === ""){
+            document.getElementById("population").innerText = `👤人口: ${population}人`;
+          }
+        }
+      }
+    }
+    if(malls != 0){
+      if(Math.floor(Math.random() * 50) <= maxpopulation / 4){
+        if(Math.floor(Math.random() * 20) <= malls){
+          population = population + 1;
+          populationcheck("in");
           if(buildmode === ""){
             document.getElementById("population").innerText = `👤人口: ${population}人`;
           }
