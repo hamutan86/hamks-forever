@@ -321,6 +321,21 @@ function populationcheck(change){
   }
 };
 
+function debug(target, amount){
+  if(target === "population"){
+    population = amount;
+    document.getElementById("population").innerText = `👤人口: ${population.toString()}人`;
+  }
+  if(target === "money"){
+    money = amount;
+    document.getElementById("money").innerText = `💵お金: $${money.toString()}`;
+  }
+  if(target === "happiness"){
+    happiness = amount;
+    document.getElementById("happiness").innerText = `😀幸福度: $${happiness.toString()}`;
+  }
+};
+
 window.onload = function(){
   var dialog = document.getElementById("dialog");
   dialog.showModal();
