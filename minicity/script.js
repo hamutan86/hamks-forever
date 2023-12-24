@@ -14,7 +14,7 @@ var gameover = false;
 var maxshoppers = 0;
 var maxemployees = 0;
 
-var popcheckcache1 = 0;
+var popcheckcache1 = -15;
 var popcheckcache2 = 0;
 var happinesscache = 0;
 
@@ -294,13 +294,13 @@ window.onload = function(){
     }
     if(maxshoppers > population && popcheckcache1 > Math.floor((population - maxshoppers) / 2)){
       happinesscache = happiness - popcheckcache1;
-      happiness = happiness + happinesscache;
+      happiness = happinesscache - Math.floor((population - maxshoppers) / 2);
       document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
       popcheckcache1 = Math.floor((population - maxshoppers) / 2);
     }
     if(maxemployees > population && popcheckcache2 > Math.floor((population - maxemployees) / 2)){
-      happinesscache = happiness - popcheckcache;
-      happiness = happiness + happinesscache;
+      happinesscache = happiness - popcheckcache2;
+      happiness = happinesscache - Math.floor((population - maxemployees) / 2);
       document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
       popcheckcache2 = Math.floor((population - maxshoppers) / 2);
     }
