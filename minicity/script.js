@@ -293,13 +293,13 @@ window.onload = function(){
       naturepoint = 0;
     }
     if(maxshoppers > population && popcheckcache1 > Math.floor((population - maxshoppers) / 2)){
-      happinesscache = happiness + popcheckcache1;
+      happinesscache = happiness - popcheckcache1;
       happiness = happiness + happinesscache;
       document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
       popcheckcache1 = Math.floor((population - maxshoppers) / 2);
     }
     if(maxemployees > population && popcheckcache2 > Math.floor((population - maxemployees) / 2)){
-      happinesscache = happiness + popcheckcache;
+      happinesscache = happiness - popcheckcache;
       happiness = happiness + happinesscache;
       document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
       popcheckcache2 = Math.floor((population - maxshoppers) / 2);
