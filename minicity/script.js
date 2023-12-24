@@ -423,7 +423,7 @@ window.onload = function(){
     document.getElementById("money").innerText = `💵お金: $${money.toString()}`;
   }, 1000)
   setInterval(() => {
-    if(opinions === []){
+    if(opinions === null){
       return document.getElementById("opinionfield").innerText = "なし";
     }
     document.getElementById("opinionfield").innerText = opinions[Math.floor(Math.random() * opinions.length)];
