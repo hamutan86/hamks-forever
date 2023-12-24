@@ -66,8 +66,24 @@ function changetile(tile) {
     document.getElementById("footer").style.display = "block";
     money = money - 500;
     document.getElementById("money").innerText = `💵お金: $${money.toString()}`;
-    maxshoppers = maxshoppers + 30;
+    maxshoppers = maxshoppers + 10;
     maxemployees = maxemployees + 1;
+    buildmode = "";
+  }
+  if(buildmode === "mall"){
+    if(money < 70000){
+      return alert("お金が足りません。");
+    }
+    document.getElementById(tile).src = "minicitmall.png";
+    document.getElementById("population").innerText = `👤人口: ${population}人`;
+    document.getElementById("money").style.display = "block";
+    document.getElementById("happiness").style.display = "block";
+    document.getElementById("setting_btn").innerText = "設定";
+    document.getElementById("footer").style.display = "block";
+    money = money - 70000;
+    document.getElementById("money").innerText = `💵お金: $${money.toString()}`;
+    maxshoppers = maxshoppers + 1000;
+    maxemployees = maxemployees + 50;
     buildmode = "";
   }
   if(buildmode === "tree"){
@@ -173,6 +189,14 @@ function changebuildmode(building) {
     document.getElementById("setting_btn").innerText = "キャンセル";
     document.getElementById("footer").style.display = "none";
     buildmode = "store";
+  }
+  if(building === "mall"){
+    document.getElementById("population").innerText = "建設モード";
+    document.getElementById("money").style.display = "none";
+    document.getElementById("happiness").style.display = "none";
+    document.getElementById("setting_btn").innerText = "キャンセル";
+    document.getElementById("footer").style.display = "none";
+    buildmode = "mall";
   }
   if(building === "tree"){
     document.getElementById("population").innerText = "建設モード";
