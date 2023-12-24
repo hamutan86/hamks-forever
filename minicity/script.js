@@ -11,6 +11,11 @@ var maxpopulation = 0;
 var tax = "medium";
 var parks = 0;
 var gameover = false;
+var maxshoppers = 0;
+var maxemployees = 0;
+
+var popcheckcache1 = 0;
+var popcheckcache2 = 0;
 
 function changetile(tile) {
   if(document.getElementById(tile).src != "https://hamutan86.github.io/hamks-forever/minicity/minicityblank.png" && buildmode != "remove" && buildmode != ""){
@@ -45,6 +50,22 @@ function changetile(tile) {
     money = money - 1600;
     document.getElementById("money").innerText = `💵お金: $${money.toString()}`;
     maxpopulation = maxpopulation + 12;
+    buildmode = "";
+  }
+  if(buildmode === "store"){
+    if(money < 500){
+      return alert("お金が足りません。");
+    }
+    document.getElementById(tile).src = "minicityapartment.png";
+    document.getElementById("population").innerText = `👤人口: ${population}人`;
+    document.getElementById("money").style.display = "block";
+    document.getElementById("happiness").style.display = "block";
+    document.getElementById("setting_btn").innerText = "設定";
+    document.getElementById("footer").style.display = "block";
+    money = money - 500;
+    document.getElementById("money").innerText = `💵お金: $${money.toString()}`;
+    maxshoppers = maxshoppers + 30;
+    maxemployees = maxemployees + 1;
     buildmode = "";
   }
   if(buildmode === "tree"){
@@ -139,6 +160,14 @@ function changebuildmode(building) {
     document.getElementById("footer").style.display = "none";
     buildmode = "apartment";
   }
+  if(building === "store"){
+    document.getElementById("population").innerText = "建設モード";
+    document.getElementById("money").style.display = "none";
+    document.getElementById("happiness").style.display = "none";
+    document.getElementById("setting_btn").innerText = "キャンセル";
+    document.getElementById("footer").style.display = "none";
+    buildmode = "store";
+  }
   if(building === "tree"){
     document.getElementById("population").innerText = "建設モード";
     document.getElementById("money").style.display = "none";
@@ -222,6 +251,33 @@ function changetax(rate){
   }
 };
 
+function populationcheck(change){
+  if(change === "in"){
+    if(maxshoppers < population && popcheckcache1 < Math.floor((population - maxshoppers) / 2)){
+      happiness = happiness - Math.floor((population - maxshoppers) / 2);
+      document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
+      popcheckcache1 = Math.floor((population - maxshoppers) / 2);
+    }
+    if(maxemployees < population && popcheckcache2 < Math.floor((population - maxshoppers) / 2)){
+      happiness = happiness - Math.floor((population - maxemployees) / 2);
+      document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
+      popcheckcache2 = Math.floor((population - maxshoppers) / 2);
+    }
+  }
+  if(change === "de"){
+    if(maxshoppers <= population && popcheckcache1 > Math.floor((population - maxshoppers) / 2)){
+      happiness = happiness + Math.floor((population - maxshoppers) / 2);
+      document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
+      popcheckcache1 = Math.floor((population - maxshoppers) / 2);
+    }
+    if(maxemployees <= population && popcheckcache2 > Math.floor((population - maxshoppers) / 2)){
+      happiness = happiness + Math.floor((population - maxemployees) / 2);
+      document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
+      popcheckcache2 = Math.floor((population - maxshoppers) / 2);
+    }
+  }
+};
+
 window.onload = function(){
   var dialog = document.getElementById("dialog");
   dialog.showModal();
@@ -237,6 +293,7 @@ window.onload = function(){
       if(Math.floor(Math.random() * 50) <= maxpopulation / 4){
         if(Math.floor(Math.random() * 100) <= happiness){
           population = population + 1;
+          populationcheck("in");
           if(buildmode === ""){
             document.getElementById("population").innerText = `👤人口: ${population}人`;
           }
@@ -247,6 +304,7 @@ window.onload = function(){
       if(Math.floor(Math.random() * 50) <= maxpopulation / 4){
         if(Math.floor(Math.random() * 100) <= Math.floor(850 / happiness)){
           population = population - 1;
+          populationcheck("de");
           if(buildmode === ""){
             document.getElementById("population").innerText = `👤人口: ${population}人`;
           }
