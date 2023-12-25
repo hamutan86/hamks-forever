@@ -371,7 +371,7 @@ window.onload = function(){
       document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
       naturepoint = 0;
     }
-    if(maxshoppers > population && popcheckcache1 > Math.floor((population - maxshoppers) / 2)){
+    if(maxshoppers > population && popcheckcache1 > Math.floor((population - maxshoppers) / 2) && population != 0){
       happinesscache = happiness - popcheckcache1;
       happiness = happinesscache - Math.floor((population - maxshoppers) / 2);
       document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
@@ -380,7 +380,7 @@ window.onload = function(){
         opinions.splice(opinions.indexOf("商店がないので買い物が出来ず不便"), 1)
       }
     }
-    if(maxemployees > population && popcheckcache2 > Math.floor((population - maxemployees) / 2)){
+    if(maxemployees > population && popcheckcache2 > Math.floor((population - maxemployees) / 2) && population != 0){
       happinesscache = happiness - popcheckcache2;
       happiness = happinesscache - Math.floor((population - maxemployees) / 2);
       document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
