@@ -88,6 +88,21 @@ function changetile(tile) {
     malls = malls + 1;
     buildmode = "";
   }
+  if(buildmode === "office"){
+    if(money < 3000){
+      return alert("お金が足りません。");
+    }
+    document.getElementById(tile).src = "minicityoffice.png";
+    document.getElementById("population").innerText = `👤人口: ${population}人`;
+    document.getElementById("money").style.display = "block";
+    document.getElementById("happiness").style.display = "block";
+    document.getElementById("setting_btn").innerText = "設定";
+    document.getElementById("footer").style.display = "block";
+    money = money - 3000;
+    document.getElementById("money").innerText = `💵お金: $${money.toString()}`;
+    maxemployees = maxemployees + 180;
+    buildmode = "";
+  }
   if(buildmode === "tree"){
     if(money < 1){
       return alert("お金が足りません。");
@@ -154,6 +169,9 @@ function changetile(tile) {
       maxemployees = maxemployees - 50;
       malls = malls - 1;
     }
+    if(document.getElementById(tile).src === "https://hamutan86.github.io/hamks-forever/minicity/minicityoffice.png"){
+      maxemployees = maxemployees - 180;
+    }
     document.getElementById(tile).src = "minicityblank.png";
     document.getElementById("population").innerText = `👤人口: ${population}人`;
     document.getElementById("money").style.display = "block";
@@ -204,6 +222,14 @@ function changebuildmode(building) {
     document.getElementById("setting_btn").innerText = "キャンセル";
     document.getElementById("footer").style.display = "none";
     buildmode = "mall";
+  }
+  if(building === "office"){
+    document.getElementById("population").innerText = "建設モード";
+    document.getElementById("money").style.display = "none";
+    document.getElementById("happiness").style.display = "none";
+    document.getElementById("setting_btn").innerText = "キャンセル";
+    document.getElementById("footer").style.display = "none";
+    buildmode = "office";
   }
   if(building === "tree"){
     document.getElementById("population").innerText = "建設モード";
