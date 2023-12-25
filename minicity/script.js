@@ -3,7 +3,7 @@
 コードの真相はハムカスのみぞ知るよ */
 
 var population = 0;
-var money = 50000;
+var money = 5000;
 var happiness = 50;
 var buildmode = "";
 var naturepoint = 0;
@@ -332,7 +332,7 @@ function debug(target, amount){
   }
   if(target === "happiness"){
     happiness = amount;
-    document.getElementById("happiness").innerText = `😀幸福度: $${happiness.toString()}`;
+    document.getElementById("happiness").innerText = `😀幸福度: ${happiness.toString()}%`;
   }
 };
 
@@ -410,7 +410,7 @@ window.onload = function(){
       money = money + (population * 20);
     }
     if(maxpopulation > population && maxpopulation != population){
-      money = money - ((maxpopulation - population) * 3);
+      money = money - ((maxpopulation - population) * 16);
     }
     if(parks != 0){
       money = money - (parks * 2);
